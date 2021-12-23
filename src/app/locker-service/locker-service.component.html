@@ -1,0 +1,54 @@
+<h2>Locker Service</h2>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>RELID</th>
+            <th>OPRBRANCD</th>
+            <th>CUSCOD</th>
+            <th>BRANCD</th>
+            <th>A/C Type</th>
+            <th>ACTNUM</th>
+            <th>Locker ID</th>
+            <th>Drawer ID</th>
+            <th>RELDATE</th>
+            <th>PAYSTAT</th>
+            <th>REMARKS</th>
+            <th>OPRSTAMP</th>
+            <th>OPRTIMSTAMP</th>
+            <th>UPDATE_BY</th>
+            <th>UPDATE_DATE</th>
+            <th>APPFLG</th>
+            <th>APPSTAMP</th>
+            <th>APPTIMSTAMP</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let locker of lockers">
+
+            <td>{{ locker.RELID}}</td>
+            <td>{{ locker.OPRBRANCD}}</td>
+            <td>{{ locker.CUSCOD}}</td>
+
+            <td>{{ locker.BRANCD}}</td>
+            <td>{{ locker.ACTYPE}}</td>
+            <td>{{ locker.ACTNUM}}</td>
+
+            <td>{{ locker.LCKRID}}</td>
+            <td>{{ locker.DRWRID}}</td>
+            <td>{{ locker.RELDATE}}</td>
+
+            <td>{{ locker.PAYSTAT}}</td>
+            <td>{{ locker.REMARKS}}</td>
+            <td>{{ locker.OPRSTAMP}}</td>
+
+            <td>{{ locker.OPRTIMSTAMP}}</td>
+            <td>{{ locker.UPDATE_BY}}</td>
+            <td>{{ locker.UPDATE_DATE}}</td>
+
+            <td>{{ locker.APPFLG}}</td>
+            <td>{{ locker.APPSTAMP}}</td>
+            <td>{{ locker.APPTIMSTAMP}}</td>
+        </tr>
+    </tbody>
+
+</table>
