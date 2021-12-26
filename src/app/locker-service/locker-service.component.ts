@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Locker } from '../locker';
+// import { FormBuilder, FormGroup } from '@angular/forms';
+import { LockerService } from '../locker.service';
 @Component({
   selector: 'app-locker-service',
   templateUrl: './locker-service.component.html',
@@ -8,32 +10,41 @@ import { Locker } from '../locker';
 export class LockerServiceComponent implements OnInit {
 
 
-  lockers!: Locker[];
-
-  constructor() { }
+  lockers : Locker[] = [];
+  // formValue !: FormGroup
+  // showExecute !: boolean;
+  // showUpdate !: boolean;
+//private formBuilder : FormBuilder,
+  constructor( private lockerService : LockerService) { }
 
   ngOnInit(): void {
-    this.lockers = [{
-      "RELID": 1,
-      "OPRBRANCD": "hh",
-      "RELDATE": "01-MAR-10",
-      "OPRSTAMP": "dfdd",
-      "UPDATE_DATE": "01-MAR-10",
-      "APPFLG": "f",
-      "ACTNUM": "53",
-      "DRWRID": 443,
-      "ACTYPE": "hyg",
-      "LCKRID": 453,
-      "CUSCOD": "hjf",
-      "PAYSTAT": "c",
-      "REMARKS": "fdvdf",
-      "OPRTIMSTAMP": "01-MAR-10",
-      "UPDATE_BY": "f",
-      "BRANCD": "hy",
-      "APPSTAMP": "f",
-      "APPTIMSTAMP": "01-MAR-10"
-  }]
+    // this.formValue=this.formBuilder.group({
+    //   relid:[''],
+    //   oprbrancd: [''],
+    //  cuscod: [''],
+    //   brancd: [''],
+    //  actype:[''],
+    //   actnum:[''],
+    // lckrid:[''],
+    //  drwrid:[''],
+    //  remarks:[''],
+    //  reldate:[''],
+    //   paystat:[''],      
+    //  oprstamp:[''],
+    //  oprtimstamp:[''],
+    //  update_by:[''],
+    // update_date:[''],
+    //   appflg:[''],
+    //  appstamp:[''],
+    //  apptimstamp: [''],
+    // })
+    this.getLockers();
 
+  }
+  private getLockers(){
+    this.lockerService.getLocker_service().subscribe(data => {
+      this.lockers = data;
+    })
   }
 
 }
